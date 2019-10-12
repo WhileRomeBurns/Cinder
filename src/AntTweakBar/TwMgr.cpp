@@ -5763,8 +5763,12 @@ int ANT_CALL TwKeyTest(int _Key, int _Modifiers)
 
 //  ---------------------------------------------------------------------------
 
-struct StructCompare : public binary_function<TwType, TwType, bool>
+struct StructCompare
 {
+	typedef TwType first_argument_type;
+    typedef TwType second_argument_type;
+    typedef bool result_type;
+	
     bool operator()(const TwType& _Left, const TwType& _Right) const
     {
         assert( g_TwMgr!=NULL );
